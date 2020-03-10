@@ -1,0 +1,32 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+nav {
+    background: #A0A0A0;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: baseline;
+    align-content: center;
+}
+li {
+    list-style: none;
+    padding: 1em 3em 1em 3em;
+}
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #404040;
+    font-size: 1em;
+}
+li:active, li:hover {
+    background: #303030;
+}
+a:active, a:hover {
+    color: #C0C0C0;
+}
+
