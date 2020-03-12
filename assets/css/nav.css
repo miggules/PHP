@@ -15,18 +15,24 @@ ul {
 }
 li {
     list-style: none;
-    padding: 1em 3em 1em 3em;
+    padding: 1em 0 1em 0;
 }
 a {
     text-decoration: none;
     text-transform: uppercase;
     color: #404040;
     font-size: 1em;
+    padding: 1em 3em 1em 3em;
 }
-li:active, li:hover {
+li a:active, li a:hover {
     background: #303030;
+    color: #C0C0C0;
 }
-a:active, a:hover {
+.active {
+    background: #303030;
     color: #C0C0C0;
 }
 
+.dropdown {
+
+}

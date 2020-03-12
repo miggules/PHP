@@ -2,11 +2,27 @@
 
 $nav = [
     [
-        'url' => 'index.php',
-        'label' => 'Home'
+        'url' => '/index.php',
+        'label' => 'Home',
+        'links' => [
+            'url' => '/',
+            'label' => 'help'
+        ],
+        [
+            'url' => '/',
+            'label' => 'me'
+        ],
+        [
+            'url' => '/',
+            'label' => 'please'
+        ],
+        [
+            'url' => '/',
+            'label' => 'god'
+        ]
     ],
     [
-        'url' => 'about.php',
+        'url' => '/',
         'label' => 'About'
     ],
     [
@@ -17,7 +33,9 @@ $nav = [
         'url' => '/',
         'label' => 'Portfolio'
     ]
-]
+];
+
+// var_dump($_SERVER);
 
 ?>
 <html lang="en">
