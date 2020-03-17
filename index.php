@@ -1,48 +1,27 @@
 <?php
 
-$police_report = [
-    [
-        'subject' => 'Domantas',
-        'reason' => 'Public urination',
-        'amount' => 50
-    ],
-    [
-        'subject' => 'Migle',
-        'reason' => 'Drunk in public',
-        'amount' => 0
-    ],
-    [
-        'subject' => 'Juste',
-        'reason' => 'Skinny dipping',
-        'amount' => 0
-    ],
-    [
-        'subject' => 'Karen',
-        'reason' => 'Constant fucking complaining',
-        'amount' => 200
-    ]
-];
+$a = rand(10, 50);
+$b = rand(20, 60);
+$c = rand(1, 10);
 
-foreach ($police_report as $index => $report) {
-    if ($report['amount'] === 0) {
-        $report['warning'] = true;
-    } else {
-        $report['warning'] = false;
-    }
-
-    $report['text'] = $report['subject'] . '(' . $report['reason'] . ')';
-    if ($report['warning']) {
-        $report['text'] .= 'ispejimas';
-    } else {
-        $report['text'] .= $report['amount'] . 'eur';
-    }
-    $police_report[$index] = $report;
-
+function sum($x, $y)
+{
+    $sum = $x + $y;
+    return "$x and $y equals to $sum";
 }
 
-var_dump($police_report);
+function prime($x)
+{
+    for ($i = 2; $i <= ($x/2); $i++) {
+        if ($x % $i == 0) {
+            return "$x is not a prime";
+        }
+    }
+    return "$x is a prime";
+}
 
-$h1 = 'Palicijos israsas';
+$h1 = sum($a, $b);
+$h2 = prime($c);
 
 ?>
 <html lang="en">
@@ -57,13 +36,7 @@ $h1 = 'Palicijos israsas';
 <main>
     <div class="wrapper">
         <h1><?php print $h1; ?></h1>
-        <ul>
-            <?php foreach ($police_report as $index => $report): ?>
-            <li>
-                <?php print $report['text']; ?>
-            </li>
-            <?php endforeach; ?>
-        </ul>
+        <h2><?php print $h2; ?></h2>
     </div>
 </main>
 </body>
