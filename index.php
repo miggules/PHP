@@ -1,44 +1,48 @@
 <?php
 
-$products = [
+$police_report = [
     [
-        'name' => 'Stumbro Degtinela',
-        'price' => 6.49,
-        'image' => '/assets/stumbras.jpg',
+        'subject' => 'Domantas',
+        'reason' => 'Public urination',
+        'amount' => 50
     ],
     [
-        'name' => 'Balzamas',
-        'price' => 9.89,
-        'image' => '/assets/balzamas.jpg',
+        'subject' => 'Migle',
+        'reason' => 'Drunk in public',
+        'amount' => 0
     ],
     [
-        'name' => 'Absolut',
-        'price' => 14.99,
-        'image' => '/assets/absolut.png',
+        'subject' => 'Juste',
+        'reason' => 'Skinny dipping',
+        'amount' => 0
     ],
     [
-        'name' => 'Baileys',
-        'price' => 8.69,
-        'image' => '/assets/baileys.jpg',
+        'subject' => 'Karen',
+        'reason' => 'Constant fucking complaining',
+        'amount' => 200
     ]
 ];
 
-$h1 = 'Drink catalog';
+foreach ($police_report as $index => $report) {
+    if ($report['amount'] === 0) {
+        $report['warning'] = true;
+    } else {
+        $report['warning'] = false;
+    }
 
-$product = [];
+    $report['text'] = $report['subject'] . '(' . $report['reason'] . ')';
+    if ($report['warning']) {
+        $report['text'] .= 'ispejimas';
+    } else {
+        $report['text'] .= $report['amount'] . 'eur';
+    }
+    $police_report[$index] = $report;
 
-foreach ($products as $product_key => $product) {
-
-    $name_key = $products[$product_key]['name'];
-    $price_key = $products[$product_key]['price'];
-    $image_key = $products[$product_key]['image'];
-
-    $product = [
-        'name' => $name_key,
-        'price' => $price_key,
-        'image' => $image_key
-    ];
 }
+
+var_dump($police_report);
+
+$h1 = 'Palicijos israsas';
 
 ?>
 <html lang="en">
@@ -51,23 +55,15 @@ foreach ($products as $product_key => $product) {
 </head>
 <body>
 <main>
-    <h1><?php print $h1; ?></h1>
     <div class="wrapper">
-        <div class="products">
-            <?php foreach ($products as $product): ?>
-            <div class="product">
-                <img src="<?php print $product['image']; ?>">
-                <div class="info">
-                    <h2>
-                        <?php print $product['name']; ?>
-                    </h2>
-                    <h3>
-                        <?php print $product['price']; ?>
-                    </h3>
-                </div>
-            </div>
-            <?php endforeach ?>
-        </div>
+        <h1><?php print $h1; ?></h1>
+        <ul>
+            <?php foreach ($police_report as $index => $report): ?>
+            <li>
+                <?php print $report['text']; ?>
+            </li>
+            <?php endforeach; ?>
+        </ul>
     </div>
 </main>
 </body>
